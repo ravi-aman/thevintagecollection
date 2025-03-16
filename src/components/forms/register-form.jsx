@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useRouter } from "next/router";
+// internal
 import { CloseEye, OpenEye } from "@/svg";
 import ErrorMsg from "../common/error-msg";
 import { notifyError, notifySuccess } from "@/utils/toast";
@@ -18,11 +19,11 @@ const schema = Yup.object().shape({
     .label("Terms and Conditions"),
 });
 
-
 const RegisterForm = () => {
   const [showPass, setShowPass] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
-  const [registerUser] = useRegisterUserMutation();
+
+  const [registerUser, { }] = useRegisterUserMutation();
   const router = useRouter();
   const { redirect } = router.query;
   // React Hook Form
@@ -44,7 +45,8 @@ const RegisterForm = () => {
       if (result?.error) {
         notifyError("Register Failed");
       } else {
-        notifySuccess("Registration Successful! Please check your email to verify your account.");
+        notifySuccess(result?.data?.message);
+        // router.push(redirect || "/");
         setIsRegistered(true);
       }
     });
@@ -63,7 +65,7 @@ const RegisterForm = () => {
             <div className="tp-login-input-box">
               <div className="tp-login-input">
                 <input
-                  {...register("name")}
+                  {...register("name", { required: `Name is required!` })}
                   id="name"
                   name="name"
                   type="text"
@@ -79,12 +81,11 @@ const RegisterForm = () => {
             <div className="tp-login-input-box">
               <div className="tp-login-input">
                 <input
-                  {...register("email")}
+                  {...register("email", { required: `Email is required!` })}
                   id="email"
                   name="email"
                   type="email"
                   placeholder="shofy@mail.com"
-                  autoComplete="email"
                 />
               </div>
               <div className="tp-login-input-title">
@@ -96,7 +97,7 @@ const RegisterForm = () => {
               <div className="p-relative">
                 <div className="tp-login-input">
                   <input
-                    {...register("password")}
+                    {...register("password", { required: `Password is required!` })}
                     id="password"
                     name="password"
                     type={showPass ? "text" : "password"}

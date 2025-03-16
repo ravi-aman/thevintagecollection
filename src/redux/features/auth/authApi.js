@@ -66,11 +66,19 @@ export const authApi = apiSlice.injectEndpoints({
     
           Cookies.set(
             "userInfo",
-            JSON.stringify({ accessToken: token, user }),
+            JSON.stringify({
+              accessToken: result.data.data.token,
+              user: result.data.data.user,
+            }),
             { expires: 0.5 }
           );
     
-          dispatch(userLoggedIn({ accessToken: token, user }));
+          dispatch(
+            userLoggedIn({
+              accessToken: result.data.data.token,
+              user: result.data.data.user,
+            })
+          );
         } catch (error) {
           console.error("Login failed:", error.message || error);
     

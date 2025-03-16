@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
@@ -26,7 +26,7 @@ const ForgotPassword = ({ params }) => {
   const [showPass, setShowPass] = useState(false);
   const [showConPass, setShowConPass] = useState(false);
   const [passwordChanged, setPasswordChanged] = useState(false);
-  const [confirmForgotPassword] = useConfirmForgotPasswordMutation();
+  const [confirmForgotPassword, { }] = useConfirmForgotPasswordMutation();
 
   // react hook form
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -42,6 +42,7 @@ const ForgotPassword = ({ params }) => {
       if (result?.error) {
         notifyError(result?.error?.data?.error);
       } else {
+        notifySuccess(result?.data?.message);
         notifySuccess("Your password has been changed successfully!");
         setPasswordChanged(true); // Hide form and show success message
         reset();
