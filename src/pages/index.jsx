@@ -29,7 +29,7 @@ export default function Home() {
       <OfferProducts/>
       <ProductGadgetArea/>
       <ProductBanner/>
-       <NewArrivals/>
+      <NewArrivals/>
       <ProductSmArea/>
       <BlogArea/>
       <InstagramArea/>

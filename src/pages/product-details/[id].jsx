@@ -9,6 +9,7 @@ import { useGetProductQuery } from '@/redux/features/productApi';
 import ProductDetailsBreadcrumb from '@/components/breadcrumb/product-details-breadcrumb';
 import ProductDetailsArea from '@/components/product-details/product-details-area';
 import PrdDetailsLoader from '@/components/loader/prd-details-loader';
+import Header from '@/layout/headers/header';
 
 const ProductDetailsPage = ({ query }) => {
   const { data: product, isLoading, isError } = useGetProductQuery(query.id);
@@ -31,7 +32,7 @@ const ProductDetailsPage = ({ query }) => {
   return (
     <Wrapper>
       <SEO pageTitle="Product Details" />
-      <HeaderTwo style_2={true} />
+      <Header />
       {content}
       <Footer primary_style={true} />
     </Wrapper>

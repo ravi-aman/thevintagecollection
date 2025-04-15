@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 // internal
 import Menus from "./header-com/menus";
 import useSticky from "@/hooks/use-sticky";
-import logo from "@assets/img/logo/logo.svg";
+import logo from "@assets/img/logo/logo.png";
 import useCartInfo from "@/hooks/use-cart-info";
 import OffCanvas from "@/components/common/off-canvas";
 import { openCartMini } from "@/redux/features/cartSlice";
@@ -36,7 +36,7 @@ const Header = () => {
                     <span>
                       <ShippingCar />
                     </span>
-                    <p>FREE Express Shipping On Orders $570+</p>
+                    <p>FREE Express Shipping On Orders 570k+</p>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -55,7 +55,7 @@ const Header = () => {
                 <div className="col-xl-2 col-lg-2 col-md-4 col-6">
                   <div className="logo">
                     <Link href="/">
-                      <Image src={logo} alt="logo" />
+                      <Image height={60}  src={logo} alt="logo" className="" />
                     </Link>
                   </div>
                 </div>
@@ -111,7 +111,7 @@ const Header = () => {
                       <div className="tp-header-contact-content">
                         <h5>Hotline:</h5>
                         <p>
-                          <a href="tel:966-595-035-008">+(966) 595 035 008</a>
+                          <a href="tel:966-595-035-008">+(91) 8744883594</a>
                         </p>
                       </div>
                     </div>
@@ -131,7 +131,7 @@ const Header = () => {
               <div className="col-xl-3 col-lg-3 col-md-3 col-6">
                 <div className="logo">
                   <Link href="/">
-                    <Image src={logo} alt="logo" />
+                    <Image height={60}   src={logo} alt="logo" />
                   </Link>
                 </div>
               </div>

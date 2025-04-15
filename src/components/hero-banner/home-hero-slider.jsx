@@ -8,6 +8,7 @@ import Link from "next/link";
 import slider_img_1 from "@assets/img/slider/slider-img-1.png";
 import slider_img_2 from "@assets/img/slider/slider-img-2.png";
 import slider_img_3 from "@assets/img/slider/slider-img-3.png";
+import slider_img_4 from "@assets/img/slider/slider-img-4.png";
 import shape_1 from "@assets/img/slider/shape/slider-shape-1.png";
 import shape_2 from "@assets/img/slider/shape/slider-shape-2.png";
 import shape_3 from "@assets/img/slider/shape/slider-shape-3.png";
@@ -19,9 +20,9 @@ const sliderData = [
   {
     id: 1,
     pre_title: { text: "Starting at", price: 274 },
-    title: "The best tablet Collection 2023",
+    title: "Timeless Vintage Wall Art Collection",
     subtitle: {
-      text_1: "Exclusive offer ",
+      text_1: "Uplift your space with ",
       percent: 35,
       text_2: "off this week",
     },
@@ -31,11 +32,11 @@ const sliderData = [
   {
     id: 2,
     pre_title: { text: "Starting at", price: 999 },
-    title: "The best note book collection 2023",
+    title: "Antique Wooden Furniture for Elegant Living",
     subtitle: {
-      text_1: "Exclusive offer ",
+      text_1: "Limited time ",
       percent: 10,
-      text_2: "off this week",
+      text_2: "discount on classics",
     },
     img: slider_img_2,
     green_bg: true,
@@ -43,16 +44,43 @@ const sliderData = [
   {
     id: 3,
     pre_title: { text: "Starting at", price: 999 },
-    title: "The best note book collection 2023",
+    title: "Boho Rugs & Candle Décor That Speak Soul",
     subtitle: {
-      text_1: "Exclusive offer ",
-      percent: 10,
-      text_2: "off this week",
+      text_1: "Handcrafted charm at ",
+      percent: 20,
+      text_2: "off – this week only",
     },
     img: slider_img_3,
     is_light: true,
   },
+  {
+    id: 4,
+    pre_title: { text: "Starting at", price: 459 },
+    title: "Royal Mirrors & Wall Frames",
+    subtitle: {
+      text_1: "Vintage reflections with ",
+      percent: 15,
+      text_2: "off – grab now",
+    },
+    img: slider_img_4,
+    green_bg: true,
+  },
+  {
+    id: 5,
+    pre_title: { text: "Starting at", price: 199 },
+    title: "Classic Lamps & Retro Lighting Pieces",
+    subtitle: {
+      text_1: "Glow your home with ",
+      percent: 25,
+      text_2: "off – limited stock",
+    },
+    img: slider_img_2,
+    green_bg: true,
+
+  },
 ];
+
+
 
 function Shape({ img, num }) {
   return (
@@ -61,11 +89,11 @@ function Shape({ img, num }) {
 }
 
 const HomeHeroSlider = () => {
-  const [active,setActive] = useState(false);
+  const [active, setActive] = useState(false);
 
   // handleActiveIndex
   const handleActiveIndex = (index) => {
-    if(index === 2){
+    if (index === 2) {
       setActive(true)
     }
     else {
@@ -87,20 +115,18 @@ const HomeHeroSlider = () => {
           onSlideChange={(swiper) => handleActiveIndex(swiper.activeIndex)}
           pagination={{ el: ".tp-slider-dot", clickable: true }}
           modules={[Navigation, Pagination, EffectFade]}
-          className={`tp-slider-active tp-slider-variation swiper-container ${
-            active ? "is-light" : ""
-          }`}
+          className={`tp-slider-active tp-slider-variation swiper-container ${active ? "is-light" : ""
+            }`}
         >
           {sliderData.map((item) => (
             <SwiperSlide
               key={item.id}
-              className={`tp-slider-item tp-slider-height d-flex align-items-center ${
-                item?.green_bg
+              className={`tp-slider-item tp-slider-height d-flex align-items-center ${item?.green_bg
                   ? "green-dark-bg"
                   : item?.is_light
-                  ? "is-light"
-                  : ""
-              }`}
+                    ? "is-light"
+                    : ""
+                }`}
               style={{ backgroundColor: item.is_light && "#E3EDF6" }}
             >
               <div className="tp-slider-shape">

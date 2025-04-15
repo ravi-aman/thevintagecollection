@@ -5,12 +5,13 @@ import Wrapper from "@/layout/wrapper";
 import Footer from "@/layout/footers/footer";
 import SectionTitle from "@/components/blog/blog-grid/section-title";
 import BlogGridArea from "@/components/blog/blog-grid/blog-grid-area";
+import Header from "@/layout/headers/header";
 
 const BlogListPage = () => {
   return (
     <Wrapper>
       <SEO pageTitle="Blog List" />
-      <HeaderTwo style_2={true} />
+      <Header/>
       <SectionTitle/>
       <BlogGridArea list_area={true} />
       <Footer primary_style={true} />

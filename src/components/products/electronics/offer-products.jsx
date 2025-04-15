@@ -37,7 +37,7 @@ const sliderSetting = {
 };
 
 const OfferProducts = () => {
-  const {data: products,isError,isLoading} = useGetOfferProductsQuery("electronics");
+  const {data: products,isError,isLoading} = useGetOfferProductsQuery("jewelry");
   // decide what to render
   console.log(products)
   let content = null;
